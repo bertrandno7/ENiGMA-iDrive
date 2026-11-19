@@ -2,6 +2,8 @@ name: ENiGMA CAM v0.9 Playback Recovery
 on:
   push:
     branches: [enigma-cam-v09-playback-recovery]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
