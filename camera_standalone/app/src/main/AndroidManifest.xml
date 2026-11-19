@@ -6,7 +6,7 @@
 <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
 <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES" android:usesPermissionFlags="neverForLocation"/>
 <uses-permission android:name="android.permission.ACCESS_LOCAL_NETWORK"/>
-<application android:label="ENiGMA CAM" android:allowBackup="false" android:usesCleartextTraffic="true" android:theme="@android:style/Theme.Material.NoActionBar" android:icon="@android:drawable/ic_menu_camera">
+<application android:label="ENiGMA CAM" android:allowBackup="false" android:usesCleartextTraffic="true" android:theme="@android:style/Theme.Material.NoActionBar">
 <activity android:name="art.enigma.cam.MainActivity" android:exported="true" android:configChanges="orientation|screenSize|keyboardHidden">
 <intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter>
 </activity></application></manifest>
