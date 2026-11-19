@@ -11,7 +11,12 @@ final class RtspWire {
     static final class Reply {
         final int code; final String header, body, error;
         Reply(int c,String h,String b,String e) { code=c; header=h; body=b; error=e; }
-        boolean hasVideoSdp() { return code==200 && body.matches("(?s).*?(?:^|\\n)m=video\\s+.*") && body.matches("(?s).*?(?:^|\\n)v=0\\r?\\n.*"); }
+        boolean hasVideoSdp() {
+            String s=body.replace("\r\n","\n").replace('\r','\n').replace("\uFEFF","");
+            return code==200 &&
+                java.util.regex.Pattern.compile("(?m)^\\s*v\\s*=\\s*0\\s*$").matcher(s).find() &&
+                java.util.regex.Pattern.compile("(?mi)^\\s*m\\s*=\\s*video\\s+\\d+\\s+").matcher(s).find();
+        }
         String summary() {
             if(!error.isEmpty()) return error;
             String first=header.split("\\r?\\n",2)[0];
